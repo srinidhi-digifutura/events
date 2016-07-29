@@ -22,7 +22,10 @@
           <% end %>
         </ul>
         <% if user_signed_in? %>
-         <p><%= link_to "New Event", new_event_path, class: "navbar-text navbar-right navbar-link" %></p>
+        <div>
+           <p><%= link_to "New Event", new_event_path, class: "navbar-text navbar-right navbar-link" %></p>
+           <p><%= link_to "My Events", '#', class: "navbar-text navbar-right navbar-link" %></p>
+         </div>
         <% end %>
     </div>
 </div>
