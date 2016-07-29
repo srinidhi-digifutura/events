@@ -25,9 +25,14 @@ class EventsController < ApplicationController
     end
 
     def update
+        @event.update(event_params)
+        @event.save
+        redirect_to events_path
     end
 
     def destroy
+        @event.destroy
+        redirect_to events_path
     end
 
     private
