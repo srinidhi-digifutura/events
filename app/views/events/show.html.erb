@@ -7,8 +7,12 @@
 	<p><%= @event.address %></p>
 	<p><%= @event.city %></p>
 	<p><%= @event.state %></p>
-	<p><%= link_to 'edit',edit_event_path(@event) %></p>
-	<p><%= link_to 'delete',@event,method: :delete %></p>
+	<% if @event.user_id == current_user.id %>
+		<p><%= link_to 'edit',edit_event_path(@event) %></p>
+		<p><%= link_to 'delete',@event,method: :delete %></p>
+		<% else %>
+		<%= link_to "Attend",'#' %>
+	<% end %>
 	<p><%= link_to 'back',events_path %></p>
   </div>
 </div>
