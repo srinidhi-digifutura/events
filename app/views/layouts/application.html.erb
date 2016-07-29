@@ -8,6 +8,17 @@
 </head>
 <body>
 
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+     <%= link_to "Events Board", root_path, class: "navbar-brand" %>
+    </div>
+    
+	<p><%= link_to "New Event", new_event_path, class: "navbar-text navbar-right navbar-link" %></p>
+    
+  </div>
+</div>
+
 <%= yield %>
 
 </body>

@@ -1,14 +1,16 @@
 <h1>Welcome to Events Website</h1>
 
 
-<div class="conatiner">
+<div class="container">
 	<% @events.each do |event| %>
-		<%= event.title %>
-	    <%= event.description %>
-	    <%= event.event_date %>
-	    <%= event.venue %>
-	    <%= event.address %>
-	    <%= event.state %>
-	    <%= event.city %>
+	  <div class="well">
+		<p><%= event.title %></p>
+	    <p><%= event.description %></p>
+	    <p><%= event.event_date %></p>
+	    <p><%= event.venue %></p>
+	    <p><%= event.address %></p>
+	    <p><%= event.city %></p>
+	    <p><%= event.state %></p>
+	  </div>
 	<% end %>
 </div>
