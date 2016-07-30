@@ -22,10 +22,10 @@
           <% end %>
         </ul>
         <% if user_signed_in? %>
-        <div class="user-actions">
+          <div class="user-actions">
            <p><%= link_to "New Event", new_event_path, class: "navbar-text navbar-right navbar-link" %></p>
            <p><%= link_to "My Events", my_events_path, class: "navbar-text navbar-right navbar-link" %></p>
-         </div>
+          </div>
         <% end %>
     </div>
 </div>
