@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'events#index'
   resources :events
-  # Example of regular route:
+  get '/attend/:id' => 'events#attend',as: :attend
+  # Example of  regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

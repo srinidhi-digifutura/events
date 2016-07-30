@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
     before_action :authenticate_user!
-    before_action :find_event,only: [:show,:edit,:update,:destroy]
+    before_action :find_event,only: [:show,:edit,:update,:destroy,:attend]
 
 	def index
         @events = Event.all
@@ -34,6 +34,13 @@ class EventsController < ApplicationController
     def destroy
         @event.destroy
         redirect_to events_path
+    end
+
+    def attend
+       assembly = Assembly.new(event_id: @event.id,user_id:current_user.id)
+       assembly.save
+       flash[:notice] = "You are successfully attending this event"
+       redirect_to @event
     end
 
     private

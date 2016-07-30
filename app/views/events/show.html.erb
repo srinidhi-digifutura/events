@@ -11,7 +11,13 @@
 		<p><%= link_to 'edit',edit_event_path(@event) %></p>
 		<p><%= link_to 'delete',@event,method: :delete %></p>
 		<% else %>
-		<%= link_to "Attend",'#' %>
+		<% @event.assemblies.each do |assembly| %>
+		    <% if assembly.user_id == current_user.id %>
+				<%= link_to "Attend",attend_path(@event) %>
+			<% else %>
+				<%= link_to "UnAttend",attend_path(@event) %>
+			<% end %>
+		<% end %>
 	<% end %>
 	<p><%= link_to 'back',events_path %></p>
   </div>
