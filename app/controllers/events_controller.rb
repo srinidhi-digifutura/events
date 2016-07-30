@@ -36,6 +36,10 @@ class EventsController < ApplicationController
         redirect_to events_path
     end
 
+    def my_events
+        @events = Event.where(user_id:current_user.id)
+    end
+
     def attend
        @is_attending = false if @event.assemblies.blank?
        assembly = @event.assemblies.build(user_id:current_user.id)

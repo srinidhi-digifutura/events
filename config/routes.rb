@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :events
   get '/attend/:id' => 'events#attend',as: :attend
   get '/un_attend/:id' => 'events#un_attend',as: :unAttend
+  get '/my/events' => 'events#my_events'
   # Example of  regular route:
   #   get 'products/:id' => 'catalog#view'
 

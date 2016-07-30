@@ -28,7 +28,7 @@
 		<h4>Number of people attending this event : <%= @event.assemblies.count %></h4>
 		<% @event.assemblies.each do |assembly| %>
 			<% user = User.find(assembly.user_id) %>
-			<%= user.email %>
+			<p><%= user.name %></p>
         <% end %>
 	</div>
 </div>

@@ -1,5 +1,9 @@
-<h1>Welcome to Events Website</h1>
 <div class="container">
+	<% if @events.count == 0 %>
+		<div class="well">
+			<h4>There are no events created by you.</h4>
+		</div>
+	<% end %>
 	<% @events.each do |event| %>
 	  <div class="well">
 		<h4><%= link_to event.title,event_path(event) %></h4>
