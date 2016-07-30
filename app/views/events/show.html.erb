@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="well">
+	<p><%= @event.title %></p>
+	<p><%= @event.description %></p>
+	<p><%= @event.event_date %></p>
+	<p><%= @event.venue %></p>
+	<p><%= @event.address %></p>
+	<p><%= @event.city %></p>
+	<p><%= @event.state %></p>
+	<% if @event.user_id == current_user.id %>
+		<p><%= link_to 'edit',edit_event_path(@event) %></p>
+		<p><%= link_to 'delete',@event,method: :delete %></p>
+		<% else %>
+		<% @event.assemblies.each do |assembly| %>
+		    <% if assembly.user_id == current_user.id %>
+				<% @is_attending = true %>
+			<% end %>
+		<% end %>
+		<% if Date.today >= @event.event_date.to_date %>
+			<h4>This Event is over</h4>
+		<% else %>
+			<% if @is_attending %>
+				<%= link_to "UnAttend",unAttend_path(@event),class:"btn btn-primary" %>
+			<% else %>
+				<%= link_to "Attend",attend_path(@event),class:"btn btn-primary" %>
+			<% end %>
+		<% end %>
+	<% end %>
+	<p><%= link_to 'back',events_path %></p>
+  </div>
+	<div class="well">
+		<h4>Number of people attending this event : <%= @event.assemblies.count %></h4>
+		<% @event.assemblies.each do |assembly| %>
+			<% user = User.find(assembly.user_id) %>
+			<p><%= user.name %></p>
+        <% end %>
+	</div>
+</div>
