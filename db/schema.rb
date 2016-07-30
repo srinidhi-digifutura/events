@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730094742) do
+ActiveRecord::Schema.define(version: 20160730141045) do
 
   create_table "assemblies", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160730094742) do
     t.text     "description"
     t.string   "city"
     t.string   "state"
-    t.date     "event_date"
+    t.datetime "event_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"

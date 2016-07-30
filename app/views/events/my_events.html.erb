@@ -13,6 +13,7 @@
 		<h4><%= link_to event.title,event_path(event) %></h4>
 	    <p><%= event.event_date %></p>
 	    <p><%= event.venue %></p>
+	    <p><b><%= event.assemblies.count %></b> attending</p>
 	  </div>
 	<% end %>
 </div>

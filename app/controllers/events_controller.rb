@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     before_action :find_event,only: [:show,:edit,:update,:destroy,:attend,:un_attend]
 
 	def index
-        @events = Event.all
+        @events = Event.all.order("created_at DESC")
 	end
 
 	def new
