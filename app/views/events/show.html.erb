@@ -13,12 +13,22 @@
 		<% else %>
 		<% @event.assemblies.each do |assembly| %>
 		    <% if assembly.user_id == current_user.id %>
-				<%= link_to "Attend",attend_path(@event) %>
-			<% else %>
-				<%= link_to "UnAttend",attend_path(@event) %>
+				<% @is_attending = true %>
 			<% end %>
+		<% end %>
+		<% if @is_attending %>
+			<%= link_to "UnAttend",unAttend_path(@event) %>
+		<% else %>
+			<%= link_to "Attend",attend_path(@event) %>
 		<% end %>
 	<% end %>
 	<p><%= link_to 'back',events_path %></p>
   </div>
+	<div class="well">
+		<h4>Number of people attending this event : <%= @event.assemblies.count %></h4>
+		<% @event.assemblies.each do |assembly| %>
+			<% user = User.find(assembly.user_id) %>
+			<%= user.email %>
+        <% end %>
+	</div>
 </div>
