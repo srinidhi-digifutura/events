@@ -15,10 +15,15 @@ class EventsController < ApplicationController
 
     def create
         @event = current_user.events.build(event_params)
-        if @event.save
-            redirect_to events_path
+        if @event.event_date.to_date > Date.today
+            if @event.save
+                redirect_to events_path
+            else
+                render 'new'
+            end
         else
-            render 'new'
+            flash[:alert] = "Please enter a Valid Date"
+            redirect_to new_event_path
         end
     end
 

@@ -16,10 +16,14 @@
 				<% @is_attending = true %>
 			<% end %>
 		<% end %>
-		<% if @is_attending %>
-			<%= link_to "UnAttend",unAttend_path(@event) %>
+		<% if Date.today >= @event.event_date.to_date %>
+			<h4>Sorry cannot get a ticket</h4>
 		<% else %>
-			<%= link_to "Attend",attend_path(@event) %>
+			<% if @is_attending %>
+				<%= link_to "UnAttend",unAttend_path(@event) %>
+			<% else %>
+				<%= link_to "Attend",attend_path(@event) %>
+			<% end %>
 		<% end %>
 	<% end %>
 	<p><%= link_to 'back',events_path %></p>
