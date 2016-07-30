@@ -17,12 +17,12 @@
 			<% end %>
 		<% end %>
 		<% if Date.today >= @event.event_date.to_date %>
-			<h4>Sorry cannot get a ticket</h4>
+			<h4>This Event is over</h4>
 		<% else %>
 			<% if @is_attending %>
-				<%= link_to "UnAttend",unAttend_path(@event) %>
+				<%= link_to "UnAttend",unAttend_path(@event),class:"btn btn-primary" %>
 			<% else %>
-				<%= link_to "Attend",attend_path(@event) %>
+				<%= link_to "Attend",attend_path(@event),class:"btn btn-primary" %>
 			<% end %>
 		<% end %>
 	<% end %>
