@@ -4,11 +4,26 @@
 	</div>
 	<% @events.each do |event| %>
 	  <div class="well">
-		<h4><%= link_to event.title,event_path(event) %></h4>
+	  	<% if event.event_date <= Time.zone.now %>
+	  		<span class="label label-danger pull-right">Past Event</span>
+	  	<% elsif event.event_date.to_date == Time.zone.today %>
+	  		<span class="label label-warning pull-right">Today's Event</span> 
+	  	<% else %>
+	  		<span class="label label-success pull-right">About 
+	  		<%= (event.event_date.to_date - Time.zone.today).to_i %> days to go</span>
+	  	<% end %>
+		<h3><%= link_to event.title,event_path(event) %></h3>
 		<p>Posted by <%= event.user.name %> <%= time_ago_in_words(event.created_at)%> ago</p>
-	    <p><%= event.event_date.to_date.strftime("%B %d, %Y") %></p>
-	    <p><%= event.event_date.strftime("%I:%M %p") %></p>
-	    <p><%= event.venue %></p>
+	    <p>ON : <b><%= event.event_date.to_date.strftime("%B %d, %Y") %></b></p>
+	    <p>AT : <b><%= event.event_date.strftime("%I:%M %p") %></b></p>
+	    <% if user_signed_in? %>
+		    <% if current_user.gender == "F" %>
+		    	<p class="pull-right">FEE: <b><%= event.ticket_fee * 0.95 %> Rs</b> (5% disc for Female)</p>
+		    <% else %>
+		    	<p class="pull-right">FEE: <b><%= event.ticket_fee %> Rs</b></p>
+		    <% end %>
+		<% end %>
+	    <p>VENUE: <b><%= event.venue %></b></p>
 	    <p><b><%= event.assemblies.count %></b> attending</p>
 	  </div>
 	<% end %>

@@ -15,14 +15,14 @@ class EventsController < ApplicationController
 
     def create
         @event = current_user.events.build(event_params)
-        if @event.event_date.to_date > Date.today
+        if @event.event_date >= Time.zone.now
             if @event.save
                 redirect_to events_path
             else
                 render 'new'
             end
         else
-            flash[:alert] = "Please enter a Valid Date"
+            flash[:alert] = "You have entered a past date. Please enter a Valid Date"
             redirect_to new_event_path
         end
     end
@@ -63,7 +63,7 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:title,:description,:event_date,:venue,:address,:state,:city)
+        params.require(:event).permit(:title,:description,:event_date,:venue,:address,:state,:city,:ticket_fee)
     end
 
     def find_event

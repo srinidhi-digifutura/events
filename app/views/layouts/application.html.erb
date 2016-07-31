@@ -23,15 +23,15 @@
         </ul>
         <% if user_signed_in? %>
           <div class="user-actions">
-           <p><%= link_to "New Event", new_event_path, class: "navbar-text navbar-right navbar-link" %></p>
-           <p><%= link_to "My Events", my_events_path, class: "navbar-text navbar-right navbar-link" %></p>
+            <span><label class="navbar-text navbar-right">Hi <%= current_user.name %> !</label></span>
+            <p><%= link_to "New Event", new_event_path, class: "navbar-text navbar-right navbar-link" %></p>
+            <p><%= link_to "My Events", my_events_path, class: "navbar-text navbar-right navbar-link" %></p>
           </div>
         <% end %>
     </div>
 </div>
 <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= flash_messages %>
 </div>
 <%= yield %>
 
