@@ -16,7 +16,7 @@
 				<% @is_attending = true %>
 			<% end %>
 		<% end %>
-		<% if Date.today >= @event.event_date.to_date %>
+		<% if Time.zone.now >= @event.event_date %>
 			<h4>This Event is over</h4>
 		<% else %>
 			<% if @is_attending %>
@@ -32,7 +32,7 @@
 		<h4>Number of people attending this event : <%= @event.assemblies.count %></h4>
 		<% @event.assemblies.each do |assembly| %>
 			<% user = User.find(assembly.user_id) %>
-			<p><%= user.name %></p>
+			<p><%= user.name %><%= user.gender %></p>
         <% end %>
 	</div>
 </div>
