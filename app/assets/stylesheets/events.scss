@@ -8,3 +8,11 @@ label[for="user_gender_m"]{
 .user-actions a{
 	padding-right:30px;
 }
+.user-attending li{
+ 
+	list-style:none;
+	display:inline;
+}
+.user-details td:last-child{
+	text-align:right;
+}

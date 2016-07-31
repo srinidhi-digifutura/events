@@ -6,7 +6,7 @@
 	  <div class="well">
 		<h4><%= link_to event.title,event_path(event) %></h4>
 		<p>Posted by <%= event.user.name %> <%= time_ago_in_words(event.created_at)%> ago</p>
-	    <p><%= event.event_date.to_date %></p>
+	    <p><%= event.event_date.to_date.strftime("%B %d, %Y") %></p>
 	    <p><%= event.event_date.strftime("%I:%M %p") %></p>
 	    <p><%= event.venue %></p>
 	    <p><b><%= event.assemblies.count %></b> attending</p>
