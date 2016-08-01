@@ -60,6 +60,17 @@ class EventsController < ApplicationController
         redirect_to @event
     end
 
+    def attend_events
+        @attending_events = []
+        Assembly.all.each do |assembly|
+            if assembly.user_id == current_user.id
+                event = Event.find_by(id:assembly.event_id)
+                @attending_events << event
+            end
+        end
+        @attending_events
+    end
+
     private
 
     def event_params
