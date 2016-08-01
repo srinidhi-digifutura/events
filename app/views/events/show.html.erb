@@ -9,7 +9,7 @@
 		<p>State : <b><%= @event.state %></b></p>
 		<% if @event.user_id == current_user.id %>
 			<p><%= link_to 'edit',edit_event_path(@event) %></p>
-			<p><%= link_to 'delete',@event,method: :delete %></p>
+			<p><%= link_to 'delete',@event,method: :delete,data: {confirm:"Are you sure?"} %></p>
 			<% else %>
 			<% @event.assemblies.each do |assembly| %>
 			    <% if assembly.user_id == current_user.id %>
