@@ -11,8 +11,9 @@
 	<% @events.each do |event| %>
 	  <div class="well">
 		<h4><%= link_to event.title,event_path(event) %></h4>
-	    <p><%= event.event_date %></p>
-	    <p><%= event.venue %></p>
+	    <p>ON : <b><%= event.event_date.to_date.strftime("%B %d, %Y") %></b></p>
+	    <p>AT : <b><%= event.event_date.strftime("%I:%M %p") %></b></p>
+	    <p>VENUE: <b><%= event.venue %></b></p>
 	    <p><b><%= event.assemblies.count %></b> attending</p>
 	  </div>
 	<% end %>

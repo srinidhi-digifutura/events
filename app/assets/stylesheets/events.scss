@@ -1,3 +1,18 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+label[for="user_gender_m"]{
+	margin-right: 40px;
+}
+.user-actions a{
+	padding-right:30px;
+}
+.user-attending li{
+ 
+	list-style:none;
+	display:inline;
+}
+.user-details td:last-child{
+	text-align:right;
+}
