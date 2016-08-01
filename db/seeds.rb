@@ -5,16 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(email:"vamsi@digifutura.com",password:"password",name:"Vamsi")
-User.create(email:"vikrant@digifutura.com",password:"password",name:"Vikrant")
+User.create(email:"pradeep@keepworks.com",password:"password",name:"Pradeep",gender:"M")
+User.create(email:"nishit@keepworks.com",password:"password",name:"Nishit",gender:"M")
+User.create(email:"shradha@keepworks.com",password:"password",name:"Shradha",gender:"F")
 first_user = User.first
-user = User.last
-user.events.create(title:"J S Channel",venue:"Auditorium",address:"Street 123",
+user = User.second
+last_user = User.last
+last_user.events.create(title:"J S Channel",venue:"Auditorium",address:"Street 123",
 	description:"Javascript founders are the guests",city:"Bengaluru",state:"Karnataka",
-	event_date:"2016/6/8")
+	event_date:Time.zone.now+1.week,ticket_fee:500)
 user.events.create(title:"J S 1",venue:"Auditorium",address:"Street 233",
-	description:"Javascript founders are the guests",city:"Bengaluru",state:"Karnataka",
-	event_date:"2016/6/10")
+	description:"Ruby founders are the guests",city:"Bengaluru",state:"Karnataka",
+	event_date:Time.zone.now+1.day,ticket_fee:600)
 first_user.events.create(title:"J 2",venue:"Auditorium",address:"Street 893",
-	description:"Javascript founders are the guests",city:"Bengaluru",state:"Karnataka",
-	event_date:"2016/6/12")
+	description:"Rails founders are the guests",city:"Bengaluru",state:"Karnataka",
+	event_date:Time.zone.now+1.month,ticket_fee:1000)
