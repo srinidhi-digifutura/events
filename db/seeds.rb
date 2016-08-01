@@ -16,7 +16,7 @@ last_user.events.create(title:"J S Channel",venue:"Auditorium",address:"Street 1
 	event_date:Time.zone.now+1.week,ticket_fee:500)
 user.events.create(title:"J S 1",venue:"Auditorium",address:"Street 233",
 	description:"Ruby founders are the guests",city:"Bengaluru",state:"Karnataka",
-	event_date:Time.zone.now+1.day,ticket_fee:600)
+	event_date:Time.zone.now+5.hours,ticket_fee:600)
 first_user.events.create(title:"J 2",venue:"Auditorium",address:"Street 893",
 	description:"Rails founders are the guests",city:"Bengaluru",state:"Karnataka",
 	event_date:Time.zone.now+1.month,ticket_fee:1000)
