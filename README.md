@@ -9,7 +9,7 @@ rake db:migrate
 
 rake db:seed
 
-seeds.rb - This will create 3 users "pradeep@gmail.com", "nishit@gmail.com"  and "shradha@gmail.com". Password for all the users is "password"
+seeds.rb - This will create 3 users "pradeep@keepworks.com", "nishit@keepworks.com"  and "shradha@keepworks.com". Password for all the users is "password"
 
 Will create 3 events created by each one respectively. Can attend/unattend events. User can edit/delete only his/her events only.
 Can know how many days left for a particular event and attend/unattend disappears for a past event.
