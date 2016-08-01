@@ -65,7 +65,7 @@ class EventsController < ApplicationController
         Assembly.all.each do |assembly|
             if assembly.user_id == current_user.id
                 event = Event.find_by(id:assembly.event_id)
-                @attending_events << event
+                @attending_events << event unless event.nil?
             end
         end
         @attending_events
