@@ -5,7 +5,7 @@
 		</div>
 	<% else %>
 		<div class="well">
-			<h4>There are <b><%= pluralize(@events.count, 'events') %></b> created by you</h4>
+			<h4>There are <b><%= pluralize(@events.count, 'Event') %></b> created by you</h4>
 		</div>
 	<% end %>
 	<% @events.each do |event| %>
