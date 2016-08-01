@@ -1,7 +1,7 @@
 <%= simple_form_for @event do |f| %>
 	<%= f.input :title %>
 	<%= f.input :description,placeholder:"Minimum 10 characters" %>
-	<%= f.input :event_date %>
+	<%= f.input :event_date,hint: "Please select valid date & time. Past date with time cannot be accepted" %>
 	<%= f.input :venue %>
 	<%= f.input :ticket_fee,placeholder:"In Rs" %>
 	<%= f.input :address,placeholder:"Minimum 10 characters" %>
